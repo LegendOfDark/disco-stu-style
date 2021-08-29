@@ -1,4 +1,4 @@
-const canvas = document.querySelector('canvas');
+const canvas = document.getElementById('canvas1');
 const c = canvas.getContext('2d');
 
 // declare canvas size
@@ -8,28 +8,6 @@ canvas.height = window.innerHeight;
 let particleArr = [];
 let hue = 0;
 
-let disco = () => {
-    var pic = new Image();
-    pic.src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/86cf185c-ad61-4faa-9c63-de77f6c62a3c/dazlbwx-516f4792-c662-49db-9c2b-812012c03689.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg2Y2YxODVjLWFkNjEtNGZhYS05YzYzLWRlNzdmNmM2MmEzY1wvZGF6bGJ3eC01MTZmNDc5Mi1jNjYyLTQ5ZGItOWMyYi04MTIwMTJjMDM2ODkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.6GvL5kH37IPIwm3513Ua6vfGNVP4lTCzmg4-eYFqvBo";
-    pic.addEventListener('load', () => {
-        c.drawImage(pic, canvas.width/2-pic.width/2, canvas.height/2-pic.height/2  -100);
-    });
-}
-
-const fitImageToCanvas = (image,canvas) => {
-    const canvasContext = canvas.getContext("2d");
-    const ratio = image.width / image.height;
-    let newWidth = canvas.width;
-    let newHeight = newWidth / ratio;
-    if (newHeight < canvas.height) {
-      newHeight = canvas.height;
-      newWidth = newHeight * ratio;
-    }
-    const xOffset = newWidth > canvas.width ? (canvas.width - newWidth) / 2 : 0;
-    const yOffset =
-      newHeight > canvas.height ? (canvas.height - newHeight) / 2 : 0;
-    canvasContext.drawImage(image, xOffset, yOffset + 45, newWidth, newHeight / 1.75);
-  };
 
 //measure title element
 let titleElement = document.getElementById('title1');
@@ -69,7 +47,8 @@ class Particle {
         this.hue = Math.random() * 360;
         // this.directionY = 1;
     }
-
+    hiisafa
+    
     draw(){
         this.hue += 1;
         c.fillStyle = 'hsl(' + this.hue + ', 100%, 50%)';
@@ -130,10 +109,11 @@ const mouse = {
 }
 
 let animate = () => {
-    disco();
+    // disco();
     c.fillStyle = 'rgba(0, 0, 0, 0.1)';
     c.fillRect(0 , 0, canvas.width, canvas.height);
     particleArr.forEach(element => element.update());
+    // disco();
     requestAnimationFrame(animate);
     // c.fillRect(title.x, title.y, title.width, title.height);
 };
